@@ -20,8 +20,8 @@ function calculateBMI(mass, height) {
 }
 
 function printResults(lowestBMI, highestBMI) {
-    [lowestBMI, highestBMI] = lowestBMI > highestBMI ? [lowestBMI, highestBMI] : [highestBMI, lowestBMI]
+    [lowestBMI, highestBMI] = lowestBMI.BMI > highestBMI.BMI ? [highestBMI, lowestBMI] : [lowestBMI, highestBMI]
     console.log(`${highestBMI.name}'s BMI (${highestBMI.BMI}) is higher than ${lowestBMI.name}'s (${lowestBMI.BMI})!`)
 }
 
-printResults(Mark, John)
+printResults(John, Mark)

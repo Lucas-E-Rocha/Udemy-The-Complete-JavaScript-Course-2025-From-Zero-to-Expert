@@ -1,15 +1,27 @@
-const calcAverage = (game1, game2, game3) => (game1 + game2 + game3) / 3
-
-const scoreDolphins = calcAverage(85, 54, 41)
-const scoreKoalas = calcAverage(23, 34, 27)
-
-function checkWinner(scoreDolphins, scoreKoalas) {
-    if (scoreDolphins >= scoreKoalas * 2) {
-        console.log(`Dolphins win (${scoreDolphins} vs. ${scoreKoalas})`)
-    } else if (scoreKoalas >= scoreDolphins * 2) {
-        console.log(`Koalas win (${scoreKoalas} vs. ${scoreDolphins})`)
-    } else console.log('No Team wins...')
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height)
+        return this.bmi
+    }
 }
 
-checkWinner(scoreDolphins, scoreKoalas)
+const john = {
+    fullName: 'John Smith',
+    mass: 95,
+    height: 1.95,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height)
+        return this.bmi
+    }
+}
 
+function printResults(person1, person2) {
+    let lowestBMI, highestBMI
+    [lowestBMI, highestBMI] = person1.calcBMI() > person2.calcBMI() ? [person2, person1] : [person1, person2]
+    console.log(`${highestBMI.fullName}'s BMI (${highestBMI.bmi}) is higher than ${lowestBMI.fullName}'s (${lowestBMI.bmi})!`)
+}
+
+printResults(mark, john)
